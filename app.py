@@ -79,6 +79,189 @@ except ImportError:
 import streamlit as st
 st.set_page_config(page_title="ECRAG", page_icon="📚", layout="wide")
 
+# ============================================================
+# LUXURY BLACK, GOLD & GLASSMORPHISM DESIGN SYSTEM
+# ============================================================
+st.markdown("""
+<style>
+/* 1. Global Page Background - Deep Obsidian with Warm Amber Spotlights */
+.stApp {
+    background: 
+        radial-gradient(circle at 12% 10%, rgba(212, 175, 55, 0.08) 0%, transparent 42%),
+        radial-gradient(circle at 88% 90%, rgba(212, 175, 55, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(18, 18, 24, 0.6) 0%, transparent 100%),
+        #070709 !important;
+    color: #f8f7f4 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* 2. Frosted Glass Sidebar with Gold Gilded Border */
+[data-testid="stSidebar"] {
+    background: rgba(10, 10, 14, 0.78) !important;
+    backdrop-filter: blur(24px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+    border-right: 1px solid rgba(212, 175, 55, 0.20) !important;
+    box-shadow: 4px 0 28px rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-testid="stSidebar"] hr {
+    border-color: rgba(212, 175, 55, 0.15) !important;
+}
+
+/* 3. Top Navigation Bar - Ultra-thin Translucent Frosted Glass */
+[data-testid="stHeader"] {
+    background: rgba(7, 7, 9, 0.60) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.14) !important;
+}
+
+/* 4. Metallic Gold Shimmer Headers */
+h1, h2, h3, .gold-text {
+    background: linear-gradient(135deg, #fff7d6 0%, #d4af37 45%, #f59e0b 80%, #aa7c11 100%);
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.3px !important;
+}
+
+/* 5. Chat Messages - High-Definition Glassmorphic Cards */
+[data-testid="stChatMessage"] {
+    background: rgba(18, 18, 24, 0.58) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 1px solid rgba(212, 175, 55, 0.18) !important;
+    border-radius: 16px !important;
+    padding: 16px 20px !important;
+    margin-bottom: 14px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 245, 200, 0.08) !important;
+    transition: all 0.25s ease !important;
+}
+
+[data-testid="stChatMessage"]:hover {
+    border-color: rgba(212, 175, 55, 0.38) !important;
+    box-shadow: 0 10px 36px 0 rgba(0, 0, 0, 0.55), 0 0 18px rgba(212, 175, 55, 0.12) !important;
+}
+
+/* 6. Gold Gilded Glass Buttons */
+.stButton > button[kind="primary"], button[data-testid="baseButton-primary"] {
+    background: linear-gradient(135deg, #e6c65b 0%, #d4af37 50%, #996515 100%) !important;
+    color: #070709 !important;
+    font-weight: 700 !important;
+    border: 1px solid #fef08a !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.stButton > button[kind="primary"]:hover, button[data-testid="baseButton-primary"]:hover {
+    transform: translateY(-1.5px) !important;
+    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.55) !important;
+    border-color: #ffffff !important;
+}
+
+.stButton > button[kind="secondary"], button[data-testid="baseButton-secondary"] {
+    background: rgba(20, 20, 26, 0.65) !important;
+    color: #f5eedc !important;
+    border: 1px solid rgba(212, 175, 55, 0.26) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+    transition: all 0.25s ease !important;
+}
+
+.stButton > button[kind="secondary"]:hover, button[data-testid="baseButton-secondary"]:hover {
+    background: rgba(30, 28, 36, 0.82) !important;
+    border-color: rgba(212, 175, 55, 0.55) !important;
+    color: #fff9e6 !important;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.22) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* 7. Chat Input Dock - Floating Glass with Gold Accent Focus */
+[data-testid="stChatInput"] {
+    background: rgba(14, 14, 18, 0.78) !important;
+    backdrop-filter: blur(22px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+    border: 1px solid rgba(212, 175, 55, 0.30) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(212, 175, 55, 0.15) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-testid="stChatInput"]:focus-within {
+    border-color: #d4af37 !important;
+    box-shadow: 0 8px 36px rgba(0, 0, 0, 0.7), 0 0 22px rgba(212, 175, 55, 0.35) !important;
+}
+
+[data-testid="stChatInput"] textarea {
+    color: #f8f7f4 !important;
+}
+
+/* 8. Glassmorphic Expanders */
+[data-testid="stExpander"] {
+    background: rgba(16, 16, 22, 0.55) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(212, 175, 55, 0.22) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35) !important;
+    margin-bottom: 12px !important;
+}
+
+[data-testid="stExpander"] summary {
+    color: #f3eee3 !important;
+    font-weight: 600 !important;
+}
+
+[data-testid="stExpander"] summary:hover {
+    color: #d4af37 !important;
+}
+
+/* 9. Live Pipeline Status Widget */
+div[data-testid="stStatusWidget"] {
+    background: rgba(16, 16, 22, 0.75) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(212, 175, 55, 0.28) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(212, 175, 55, 0.1) !important;
+}
+
+/* 10. Callouts & Info Alerts */
+.stAlert {
+    background: rgba(18, 18, 24, 0.65) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(212, 175, 55, 0.25) !important;
+    border-radius: 12px !important;
+    color: #f8f7f4 !important;
+}
+
+/* 11. Radio Options & Checkboxes */
+div[data-testid="stRadio"] label {
+    color: #e5e5dc !important;
+}
+
+/* 12. Custom Obsidian-Gold Scrollbar */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+::-webkit-scrollbar-track {
+    background: #070709;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.35);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.65);
+}
+</style>
+""", unsafe_allow_html=True)
+
 PROJECT_ROOT = Path(__file__).resolve().parent
 DATA_FOLDER = PROJECT_ROOT / "data"
 DATA_FOLDER.mkdir(exist_ok=True)
@@ -587,13 +770,15 @@ def generate_verification_meter_html(
 
     html = f"""
 <div class="ecrag-meter-card" style="
-    background: linear-gradient(135deg, rgba(20, 27, 45, 0.95), rgba(15, 23, 42, 0.98));
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, rgba(18, 18, 24, 0.85), rgba(10, 10, 14, 0.92));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.22);
     border-left: 5px solid {theme_color};
-    border-radius: 12px;
-    padding: 15px 18px;
+    border-radius: 14px;
+    padding: 16px 20px;
     margin: 12px 0 16px 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(212, 175, 55, 0.12);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 ">
     <style>
@@ -704,21 +889,21 @@ def generate_verification_meter_html(
         padding-top: 10px;
         border-top: 1px solid rgba(255, 255, 255, 0.06);
     ">
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 5px 8px; border-radius: 6px;">
-            <div style="font-size: 9px; color: #94a3b8; text-transform: uppercase; font-weight: 600;">Claims Verified</div>
-            <div style="font-size: 11px; font-weight: 700; color: #f1f5f9; margin-top: 1px;">📋 {claim_stat}</div>
+        <div style="background: rgba(212, 175, 55, 0.04); border: 1px solid rgba(212, 175, 55, 0.15); padding: 6px 9px; border-radius: 8px;">
+            <div style="font-size: 9px; color: #d4af37; text-transform: uppercase; font-weight: 600; letter-spacing: 0.3px;">Claims Verified</div>
+            <div style="font-size: 11px; font-weight: 700; color: #f8f7f4; margin-top: 1px;">📋 {claim_stat}</div>
         </div>
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 5px 8px; border-radius: 6px;">
-            <div style="font-size: 9px; color: #94a3b8; text-transform: uppercase; font-weight: 600;">Contradictions</div>
+        <div style="background: rgba(212, 175, 55, 0.04); border: 1px solid rgba(212, 175, 55, 0.15); padding: 6px 9px; border-radius: 8px;">
+            <div style="font-size: 9px; color: #d4af37; text-transform: uppercase; font-weight: 600; letter-spacing: 0.3px;">Contradictions</div>
             <div style="font-size: 11px; font-weight: 700; color: {conflict_color}; margin-top: 1px;">{conflict_icon} {conflict_stat}</div>
         </div>
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 5px 8px; border-radius: 6px;">
-            <div style="font-size: 9px; color: #94a3b8; text-transform: uppercase; font-weight: 600;">Evidence Health</div>
-            <div style="font-size: 11px; font-weight: 700; color: #f1f5f9; margin-top: 1px;">🎯 {quality_str} Quality</div>
+        <div style="background: rgba(212, 175, 55, 0.04); border: 1px solid rgba(212, 175, 55, 0.15); padding: 6px 9px; border-radius: 8px;">
+            <div style="font-size: 9px; color: #d4af37; text-transform: uppercase; font-weight: 600; letter-spacing: 0.3px;">Evidence Health</div>
+            <div style="font-size: 11px; font-weight: 700; color: #f8f7f4; margin-top: 1px;">🎯 {quality_str} Quality</div>
         </div>
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 5px 8px; border-radius: 6px;">
-            <div style="font-size: 9px; color: #94a3b8; text-transform: uppercase; font-weight: 600;">Audit Time</div>
-            <div style="font-size: 11px; font-weight: 700; color: #f1f5f9; margin-top: 1px;">⏱️ {time_str}</div>
+        <div style="background: rgba(212, 175, 55, 0.04); border: 1px solid rgba(212, 175, 55, 0.15); padding: 6px 9px; border-radius: 8px;">
+            <div style="font-size: 9px; color: #d4af37; text-transform: uppercase; font-weight: 600; letter-spacing: 0.3px;">Audit Time</div>
+            <div style="font-size: 11px; font-weight: 700; color: #f8f7f4; margin-top: 1px;">⏱️ {time_str}</div>
         </div>
     </div>
 </div>
@@ -5728,11 +5913,11 @@ else:
 with st.sidebar:
     # 1. Header & Identity
     st.markdown("""
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-            <div style="font-size:32px;">🔬</div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;padding:6px 0;">
+            <div style="font-size:32px;filter:drop-shadow(0 0 10px rgba(212, 175, 55, 0.45));">🔬</div>
             <div>
-                <div style="font-size:18px;font-weight:700;letter-spacing:0.5px;">ECRAG STUDIO</div>
-                <div style="font-size:11px;color:#888;">Evidence-Calibrated Verification RAG</div>
+                <div style="font-size:19px;font-weight:800;letter-spacing:0.8px;background:linear-gradient(135deg, #fff7d6 0%, #d4af37 50%, #aa7c11 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">ECRAG STUDIO</div>
+                <div style="font-size:11px;color:#a8a29e;letter-spacing:0.3px;">Evidence-Calibrated Verification RAG</div>
             </div>
         </div>
     """, unsafe_allow_html=True)
@@ -5780,12 +5965,12 @@ with st.sidebar:
     # Dynamic Mode Info Card
     if st.session_state.app_mode == MODE_ONLINE:
         has_gemini = bool(_resolve_gemini_api_key())
-        status_color = "#10b981" if has_gemini else "#ef4444"
+        status_color = "#d4af37" if has_gemini else "#ef4444"
         key_status = "✅ Connected" if has_gemini else "⚠️ Key Missing (Add in Secrets)"
         st.markdown(f"""
-            <div style="background:rgba(16,185,129,0.08);border-left:4px solid {status_color};padding:8px 10px;border-radius:4px;font-size:11px;line-height:1.4;">
-                <b style="color:{status_color};">🌐 ONLINE VERIFICATION MODE</b><br/>
-                • <b>Model:</b> <code>{_resolve_gemini_model()}</code> (Cloud)<br/>
+            <div style="background:rgba(212,175,55,0.06);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(212,175,55,0.22);border-left:4px solid {status_color};padding:10px 12px;border-radius:10px;font-size:11px;line-height:1.45;box-shadow:0 4px 18px rgba(0,0,0,0.35);">
+                <b style="color:{status_color};letter-spacing:0.3px;">🌐 ONLINE VERIFICATION MODE</b><br/>
+                • <b>Model:</b> <code style="background:rgba(212,175,55,0.12);color:#fef08a;border:1px solid rgba(212,175,55,0.25);">{_resolve_gemini_model()}</code> (Cloud)<br/>
                 • <b>API Key:</b> <b>{key_status}</b><br/>
                 • <b>Search:</b> Multi-tier live internet retrieval<br/>
                 • <b>Pipeline:</b> 7-Stage Factual Verification
@@ -5795,9 +5980,9 @@ with st.sidebar:
             st.warning("⚠️ **Gemini API Key Missing**: On Streamlit Cloud, click **Manage app** (bottom-right) ➔ **Settings** ➔ **Secrets** to add `GEMINI_API_KEY`.")
     elif st.session_state.app_mode == MODE_OFFLINE:
         st.markdown("""
-            <div style="background:rgba(245,158,11,0.08);border-left:4px solid #f59e0b;padding:8px 10px;border-radius:4px;font-size:11px;line-height:1.4;">
-                <b style="color:#f59e0b;">🌴 OFFLINE / ISLAND MODE</b><br/>
-                • <b>Model:</b> <code>Qwen 1.5B / Ollama</code> (100% Local)<br/>
+            <div style="background:rgba(245,158,11,0.06);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(245,158,11,0.22);border-left:4px solid #f59e0b;padding:10px 12px;border-radius:10px;font-size:11px;line-height:1.45;box-shadow:0 4px 18px rgba(0,0,0,0.35);">
+                <b style="color:#f59e0b;letter-spacing:0.3px;">🌴 OFFLINE / ISLAND MODE</b><br/>
+                • <b>Model:</b> <code style="background:rgba(245,158,11,0.12);color:#fde047;border:1px solid rgba(245,158,11,0.25);">Qwen 1.5B / Ollama</code> (100% Local)<br/>
                 • <b>Store:</b> Local ChromaDB knowledge base<br/>
                 • <b>Network:</b> Zero external requests (Air-gapped)
             </div>
@@ -5806,9 +5991,9 @@ with st.sidebar:
     else:
         doc_label = st.session_state.uploaded_document or "No PDF active"
         st.markdown(f"""
-            <div style="background:rgba(59,130,246,0.08);border-left:4px solid #3b82f6;padding:8px 10px;border-radius:4px;font-size:11px;line-height:1.4;">
-                <b style="color:#3b82f6;">📚 DOCUMENT RAG MODE</b><br/>
-                • <b>Document:</b> <code>{doc_label}</code><br/>
+            <div style="background:rgba(212,175,55,0.06);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(212,175,55,0.22);border-left:4px solid #e6c65b;padding:10px 12px;border-radius:10px;font-size:11px;line-height:1.45;box-shadow:0 4px 18px rgba(0,0,0,0.35);">
+                <b style="color:#e6c65b;letter-spacing:0.3px;">📚 DOCUMENT RAG MODE</b><br/>
+                • <b>Document:</b> <code style="background:rgba(212,175,55,0.12);color:#fef08a;border:1px solid rgba(212,175,55,0.25);">{doc_label}</code><br/>
                 • <b>Retrieval:</b> FAISS chunk embeddings<br/>
                 • <b>Grounding:</b> Direct citation & anti-hallucination
             </div>
@@ -5912,37 +6097,49 @@ with st.sidebar:
 # MAIN HEADER & DYNAMIC MODE STATUS BANNER
 # ============================================================
 
-st.title("📚 Evidence-Calibrated RAG")
-st.markdown("**Conversational, factual verification RAG with multi-source evidence calibration and transparent abstention.**")
+st.markdown("""
+<div style="margin-bottom: 8px;">
+    <h1 style="font-size: 34px; margin-bottom: 4px; display: inline-flex; align-items: center; gap: 10px;">
+        <span>📚</span>
+        <span class="gold-text">Evidence-Calibrated RAG</span>
+    </h1>
+    <div style="font-size: 14px; color: #d4cfc3; font-weight: 500; letter-spacing: 0.2px;">
+        Conversational, factual verification RAG with multi-source evidence calibration and transparent abstention.
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 # Dynamic status banner
 banner_mode = st.session_state.get("app_mode", MODE_ONLINE)
 if banner_mode == MODE_ONLINE:
-    banner_bg = "rgba(16, 185, 129, 0.10)"
-    banner_border = "#10b981"
+    banner_bg = "rgba(212, 175, 55, 0.07)"
+    banner_border = "rgba(212, 175, 55, 0.35)"
+    banner_accent = "#d4af37"
     banner_icon = "🌐"
     banner_title = "ONLINE VERIFICATION MODE ACTIVE"
-    banner_desc = "Cloud Gemini 3.6 Flash • Live Multi-Tier Web Search • 7-Stage Factual Verification Pipeline"
+    banner_desc = "Cloud Gemini • Live Multi-Tier Web Search • 7-Stage Factual Verification Pipeline"
 elif banner_mode == MODE_OFFLINE:
-    banner_bg = "rgba(245, 158, 11, 0.10)"
-    banner_border = "#f59e0b"
+    banner_bg = "rgba(245, 158, 11, 0.07)"
+    banner_border = "rgba(245, 158, 11, 0.35)"
+    banner_accent = "#f59e0b"
     banner_icon = "🌴"
     banner_title = "OFFLINE / ISLAND MODE ACTIVE"
     banner_desc = "100% Local Qwen 1.5B / Ollama • ChromaDB Knowledge Base • Zero Internet Requests • For running the app in offline mode you need to install it"
 else:
-    banner_bg = "rgba(59, 130, 246, 0.10)"
-    banner_border = "#3b82f6"
+    banner_bg = "rgba(212, 175, 55, 0.07)"
+    banner_border = "rgba(212, 175, 55, 0.35)"
+    banner_accent = "#e6c65b"
     banner_icon = "📚"
     banner_title = "DOCUMENT RAG MODE ACTIVE"
     doc_n = st.session_state.uploaded_document or "No document uploaded"
     banner_desc = f"Active PDF: {doc_n} • FAISS Vector Store • Strict Document Grounding"
 
 st.markdown(f"""
-    <div style="background:{banner_bg}; border: 1px solid {banner_border}; border-left: 6px solid {banner_border}; padding: 10px 14px; border-radius: 6px; margin-bottom: 14px;">
-        <div style="font-size:13px; font-weight:700; color:{banner_border};">
+    <div style="background:{banner_bg}; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid {banner_border}; border-left: 5px solid {banner_accent}; padding: 12px 16px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 245, 200, 0.08);">
+        <div style="font-size:13px; font-weight:700; color:{banner_accent}; letter-spacing:0.4px;">
             <span>{banner_icon}</span> {banner_title}
         </div>
-        <div style="font-size:11px; color:#555; margin-top:2px;">
+        <div style="font-size:11px; color:#c7c5bc; margin-top:3px; line-height:1.4;">
             {banner_desc}
         </div>
     </div>
