@@ -5948,21 +5948,6 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
-# Quick mode toggle pills
-q_c1, q_c2, q_c3 = st.columns(3)
-with q_c1:
-    if st.button("🌐 Switch to Online", key="btn_quick_online", use_container_width=True, type="primary" if banner_mode == MODE_ONLINE else "secondary"):
-        set_app_mode(MODE_ONLINE)
-        st.rerun()
-with q_c2:
-    if st.button("🌴 Switch to Offline", key="btn_quick_offline", use_container_width=True, type="primary" if banner_mode == MODE_OFFLINE else "secondary"):
-        set_app_mode(MODE_OFFLINE)
-        st.rerun()
-with q_c3:
-    if st.button("📚 Switch to Document", key="btn_quick_doc", use_container_width=True, type="primary" if banner_mode == MODE_DOCUMENT else "secondary"):
-        set_app_mode(MODE_DOCUMENT)
-        st.rerun()
-
 if banner_mode == MODE_OFFLINE:
     st.info("💡 **Note:** For running the app in offline mode you need to install it.")
 
