@@ -1,0 +1,40 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment secrets and API keys
+.env
+.env.*
+!.env.example
+
+# Local SQLite databases (chat history, user sessions)
+*.db
+*.sqlite3
+ecrag_chat_history.db
+ecrag_memory.db
+
+# Vector store & document caches
+data/.ecrag_cache/
+data/chroma_db/
+cache/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE configs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+

@@ -1,0 +1,189 @@
+TECH AND GADGETS OFFLINE GUIDE
+================================
+For when you have tech problems and no internet to search for help.
+
+======================================
+SECTION 1: SMARTPHONE PROBLEMS
+======================================
+
+Q: My Android phone is frozen and won't respond. How do I fix it?
+A: Press and hold the Power button and Volume Down button simultaneously for 10 to 15 seconds until the phone restarts. On Samsung phones, press Power + Volume Down. On older phones, press and hold just the Power button for 10 seconds. If the phone is completely unresponsive, remove the battery if possible. After restarting, the phone should work normally. If it freezes repeatedly, try clearing the cache partition from recovery mode (Power + Volume Up + Home button).
+
+Q: My iPhone is frozen and won't turn off. What do I do?
+A: iPhone 8 and newer: quickly press and release Volume Up, then quickly press and release Volume Down, then press and hold the Side button until the Apple logo appears. iPhone 7: press and hold both the Volume Down and Sleep/Wake buttons for 10 seconds. iPhone 6 and older: press and hold both the Home and Sleep/Wake buttons for 10 seconds. This is called a force restart and does not erase any data.
+
+Q: My phone screen is cracked but still works. What should I do?
+A: Apply a clear screen protector or clear packing tape over the crack to prevent glass splinters from injuring your fingers. Back up all your data immediately (photos, contacts, apps) in case the screen fails further. Avoid pressing hard on cracked areas. Keep the phone away from water and dust as cracks allow ingress. Get the screen professionally repaired as soon as possible. Continuing to use a badly cracked screen can cause further internal damage.
+
+Q: My phone storage is full. How do I free up space quickly?
+A: Delete apps you rarely use. Clear app cache: Go to Settings > Apps, select each large app and tap Clear Cache. Delete duplicate photos and screenshots, which are often the biggest space consumers. Transfer photos to a laptop or cloud service (while you have internet). Delete offline downloads from music and video apps (Spotify, Netflix). Empty your email trash and spam folders. On Android, use the Files app which often has a Clean Up button that identifies junk files automatically.
+
+Q: How do I transfer photos from my phone to my laptop without internet?
+A: Use a USB cable: connect your phone to the laptop. On Android, swipe down the notification bar and tap the USB connection option, then select File Transfer or MTP. The phone should appear as a drive on your laptop. On iPhone, use iTunes or the Photos app on Windows which prompts you when an iPhone is connected. Alternatively, enable Wi-Fi Direct or Bluetooth on both devices to transfer files without internet.
+
+Q: My phone is charging very slowly. What is wrong?
+A: Check the charging cable for fraying or damage at the connector. Try a different cable and charger. Clean the phone's charging port gently with a dry toothpick to remove lint (very common). Ensure you are using the original or a certified fast charger (many cheap chargers deliver lower wattage). Turn on airplane mode while charging to dramatically speed up charging (the phone uses less power when not searching for signal). Charge from a wall socket rather than a laptop USB port (which delivers less power).
+
+Q: My phone speaker has no sound. How do I fix it?
+A: Check that the phone is not on silent or Do Not Disturb mode. Increase the media volume (separate from ringtone volume) by pressing the volume buttons while playing audio. Check if headphones are partially plugged in (the phone may think headphones are connected). Restart the phone. Clean the speaker grille gently with a dry brush to remove dust and lint. If sound is muffled but present, the speaker grille may be blocked. Check if the issue is app-specific by testing in multiple apps.
+
+Q: My phone's GPS is not working accurately. How do I fix it?
+A: Go to Settings > Location and ensure location is enabled and set to High Accuracy mode (uses GPS, Wi-Fi, and mobile networks). Go outdoors and away from buildings (GPS needs a clear line of sight to satellites). Restart the phone. Clear the GPS cache: Go to Settings > Apps > find your Maps app > Clear Cache. Toggle airplane mode on and off to reset the radio. Accuracy improves after the phone has time to lock onto multiple satellites, which can take 1 to 2 minutes when starting from scratch.
+
+Q: How do I back up my phone contacts without using cloud services?
+A: On Android: Go to Contacts > Menu > Export > Save to device storage as a .vcf file, then copy that file to your laptop. On iPhone: Connect to iTunes > Back Up Now, or export contacts via Settings > Your Name > iCloud > Contacts > Export vCard. You can also manually export contacts to a Google account by syncing to Gmail if you have internet, then export from Gmail contacts as a CSV file. Keep this file on your laptop as a backup.
+
+======================================
+SECTION 2: LAPTOP AND COMPUTER PROBLEMS
+======================================
+
+Q: My laptop is running very slowly. How do I speed it up?
+A: Restart the laptop (not just sleep) to clear temporary files and free RAM. Close all browser tabs and unnecessary applications. Open Task Manager (Ctrl + Shift + Esc on Windows) and end any processes using excessive CPU or memory. Disable startup programs: Task Manager > Startup tab > right-click and disable unnecessary items. Check that the laptop has at least 10% free disk space. On Windows, run Disk Cleanup (search for it in Start menu) to remove temporary files. Ensure the cooling vents are not blocked; overheating causes throttling.
+
+Q: My laptop keyboard is not working properly. What should I do?
+A: Try pressing the Num Lock key (on some laptops certain keys are part of the numeric keypad and behave differently when Num Lock is on). Restart the laptop. Check if a wireless keyboard dongle is properly connected. Try connecting an external USB keyboard to see if the issue is with the keyboard itself or the operating system. On Windows, check Settings > Ease of Access > Keyboard and ensure Sticky Keys and Filter Keys are turned off, as these can change keyboard behavior.
+
+Q: My laptop screen has gone black but I can hear it running. What do I do?
+A: Press the function key combination to toggle the display (often Fn + F4, Fn + F5, or Fn + F8 depending on the laptop brand). Connect an external monitor via HDMI to verify the screen is the issue. Try adjusting the screen brightness (Fn + brightness keys). Close and reopen the lid. Restart the laptop. If the screen has a faint image visible, the backlight may have failed. If the screen is completely dead after a fall, the screen cable or display may be physically damaged.
+
+Q: My laptop has no sound. How do I fix it?
+A: Right-click the speaker icon in the taskbar and select Open Sound Settings. Ensure the output device is set to your laptop speakers and not headphones or an HDMI display. Check that volume is not muted. In Device Manager, check if the audio driver has an exclamation mark indicating an error. Restart the Windows Audio service: press Win + R, type services.msc, find Windows Audio, right-click and select Restart. Reinstalling audio drivers often resolves persistent sound issues.
+
+Q: My laptop keeps disconnecting from Wi-Fi. How do I fix it?
+A: In Network Settings, select your Wi-Fi adapter, go to Properties > Power Management, and uncheck Allow the computer to turn off this device to save power. Update your Wi-Fi driver (Device Manager > Network Adapters > right-click > Update Driver if you have internet). Change your router to a different channel (router settings). Forget the network and reconnect. Set your network adapter to maximum performance in Power Options > Change plan settings > Advanced settings > Wireless Adapter Settings.
+
+Q: My laptop battery drains too fast. How do I extend it?
+A: Reduce screen brightness (biggest battery consumer). Enable battery saver or power saving mode. Close unused browser tabs and applications. Disconnect external devices (USB drives, external mice draw power). Reduce screen timeout interval. Disable Bluetooth and Wi-Fi if not needed. In Settings > Power & Sleep (Windows), set display sleep to 2 to 5 minutes. Do not leave the laptop in full performance mode when doing simple tasks like reading or writing.
+
+Q: My laptop is overheating. What should I do?
+A: Place the laptop on a hard, flat surface (never on a bed or pillow which blocks vents). Clean the vents with compressed air to remove dust buildup (the most common cause of overheating). Use a laptop cooling pad. Close demanding applications (games, video editing). Check that the cooling fan is running (you should hear it spinning up under load). In extreme cases, thermal paste between the CPU and heatsink may need to be replaced, but this requires technical skill.
+
+Q: How do I recover a deleted file on Windows?
+A: First check the Recycle Bin on your desktop. If it's been emptied, right-click on the folder where the file was and select Properties > Previous Versions to find a restored version. Use Windows File History if you had it enabled. For deeper recovery, free tools like Recuva can scan your drive for recoverable deleted files. Act quickly: the more you use the computer after deletion, the higher the chance the file is overwritten and unrecoverable.
+
+======================================
+SECTION 3: CAMERA AND PHOTOGRAPHY
+======================================
+
+Q: My camera memory card says it is full but I have deleted many photos. How do I fix this?
+A: The storage may not have updated properly. Remove the memory card, reinsert it, and wait for the camera to rescan. Restart the camera. On some cameras, deleted photos go to a trash folder on the card that must be emptied separately. Connect the card to your laptop and use the file manager to check the actual remaining space. Some cameras create multiple folders; check all folders for hidden files. If the card is corrupted, you may need to reformat it (back up everything first as formatting erases all data).
+
+Q: My camera lens is foggy. How do I clear it?
+A: Fog usually forms when moving from a cool air-conditioned space to warm humid outdoor air. This is called condensation and will clear naturally in 15 to 30 minutes as the lens adjusts to the ambient temperature. Do not try to wipe the inside of the lens. For external fog, gently wipe with a clean microfibre cloth. To prevent fogging, put the camera in a zip-lock bag before moving between very different temperatures. The bag will get the condensation instead of your lens.
+
+Q: My photos are coming out blurry. What camera settings do I change?
+A: Blurry photos are most often caused by camera shake or incorrect focus. To fix shake: increase shutter speed (use at least 1/focal length of your lens), use image stabilization if available, brace yourself or use a tripod. To fix focus: ensure autofocus is enabled, half-press the shutter button and wait for focus confirmation before taking the shot. In low light, the camera focuses slowly or hunts; use a flashlight to illuminate the subject briefly so the camera can lock focus.
+
+Q: How do I take a good photo in low light without flash?
+A: Increase the ISO (makes the sensor more sensitive to light but adds grain). Use a wide aperture (low f-number like f/1.8 if available). Slow down the shutter speed and brace the camera against a wall or use a tripod to avoid shake. On smartphones, use the Night Mode if available (it takes multiple exposures and combines them). Avoid digital zoom in low light as it significantly degrades quality. Use available light sources creatively (candles, street lights, room lamps).
+
+======================================
+SECTION 4: AUDIO AND HEADPHONES
+======================================
+
+Q: One side of my headphones has no sound. What is wrong?
+A: Try the headphones on a different device to check if the issue is with the headphones or the source device. Check the audio balance settings on your phone or laptop (Settings > Sound > Balance slider should be centered). Try different audio content to rule out a mono recording. Clean the headphone jack and plug with a dry cloth. If only one side of the headphones is always silent regardless of device, the driver in that ear has likely failed and the headphones need repair or replacement.
+
+Q: My Bluetooth headphones won't connect. How do I fix this?
+A: Turn the headphones off and back on. Delete the headphones from your device's paired devices list and pair again from scratch. Ensure the headphones are in pairing mode (usually indicated by a flashing LED). Check that you are within 10 meters and there are no significant obstructions. Turn Bluetooth off and on on your phone or laptop. If many devices are paired to the headphones, some models have a limit; delete old paired devices from the headphone's memory (check the manual for how to do a Bluetooth reset).
+
+======================================
+SECTION 5: COMMON TECH TIPS AND SHORTCUTS
+======================================
+
+Q: What are the most useful keyboard shortcuts in Windows?
+A: Ctrl+C = Copy. Ctrl+V = Paste. Ctrl+X = Cut. Ctrl+Z = Undo. Ctrl+Y = Redo. Ctrl+S = Save. Ctrl+A = Select All. Alt+Tab = Switch between open windows. Win+D = Show desktop. Win+L = Lock screen. Win+E = Open File Explorer. Ctrl+Shift+Esc = Open Task Manager. Alt+F4 = Close current window. F2 = Rename selected file. F5 = Refresh. Print Screen = Screenshot to clipboard. Win+Shift+S = Snipping tool screenshot. Ctrl+P = Print. Ctrl+F = Find (in any document or browser).
+
+Q: How do I extend my laptop screen to a TV or monitor using HDMI?
+A: Connect the HDMI cable from your laptop to the TV or monitor. Press Win+P on Windows to open the display mode selector: choose Duplicate (same image on both), Extend (extra workspace), or Second screen only. If the TV shows no signal, switch the TV input source to the correct HDMI port. Adjust the resolution in Display Settings if the image appears stretched or too small. On Mac, go to System Preferences > Displays > Arrangement to configure the external display.
+
+Q: How do I find out my laptop or PC's IP address?
+A: On Windows: Open Command Prompt (press Win + R, type cmd, press Enter). Type ipconfig and press Enter. Look for IPv4 Address under your active network adapter. On Mac: System Preferences > Network > select your connection > your IP address is shown. On iPhone: Settings > Wi-Fi > tap the (i) next to your network. On Android: Settings > Wi-Fi > tap your network name > your IP address is shown in the details.
+
+Q: How do I check how much RAM my computer has?
+A: On Windows: right-click on This PC or My Computer and select Properties. The Installed RAM is shown in the System section. Alternatively, open Task Manager (Ctrl+Shift+Esc) and click the Performance tab, then click Memory. On Mac: click the Apple menu > About This Mac > the Memory line shows your RAM.
+
+Q: How do I turn off automatic updates on Windows?
+A: Go to Settings > Windows Update > Advanced Options > Pause Updates (you can pause for up to 35 days). To disable completely: open Services (Win+R, type services.msc), find Windows Update, double-click it, set Startup Type to Disabled. Note that keeping updates disabled long-term is a security risk. It is better to set active hours so updates only install when you are not using the computer: Settings > Windows Update > Active Hours.
+
+Q: My computer clock is showing the wrong time. How do I fix it?
+A: Windows: right-click the clock in the taskbar > Adjust date/time > toggle Set time automatically off, then back on. If it still shows wrong time, manually set the correct time and date. Ensure the correct time zone is selected. The CMOS battery on your motherboard (a small coin-shaped battery) can die after several years, causing the clock to reset after every power cycle. Replacing this cheap battery ($2-$5) fixes the problem permanently.
+
+
+======================================
+SECTION 6: WINDOWS ERRORS, TEMPORARY FILES, 404 ERRORS & ISLAND OFFLINE TECH
+======================================
+
+Q: How do I delete temporary files on Windows to free up disk space?
+A: There are 3 quick and safe methods:
+1. Using Run Command (Fastest):
+   - Press Win + R, type %temp% and hit Enter. This opens your user temporary files folder.
+   - Press Ctrl + A to select everything, then press Shift + Delete to permanently remove them. (If a popup says a file is in use, check "Do this for all current items" and click Skip).
+   - Press Win + R again, type temp (without percent signs) and press Enter. Grant admin permission if asked, select all (Ctrl + A), and delete.
+2. Using Windows Disk Cleanup:
+   - Press Win + R, type cleanmgr and hit Enter.
+   - Select your C: drive, check "Temporary files", "Thumbnails", "Recycle Bin", and "Temporary Internet Files", then click OK > Delete Files.
+   - For a deeper clean, click "Clean up system files" to remove old Windows update backups.
+3. Using Windows Storage Settings:
+   - Open Settings (Win + I) > System > Storage > Temporary files.
+   - Windows will calculate temporary files; check the boxes and click "Remove files".
+4. Command Prompt / PowerShell (Advanced):
+   - Run PowerShell as Admin: Clear-RecycleBin -Force; Remove-Item -Path "$env:TEMP\*" -Recurse -Force -ErrorAction SilentlyContinue
+
+Q: How do I deal with a random 404 Not Found error, especially when working offline?
+A: An HTTP 404 error means the client successfully reached a web server, but the requested resource or URL path does not exist on that server.
+When working offline on a laptop (island or no internet):
+1. Distinguish Offline Connection vs. 404:
+   - If you are trying to visit an external website (like google.com or github.com) with no internet, your browser usually shows "No Internet" or "DNS_PROBE_FINISHED_NO_INTERNET". However, if you are running a local proxy, Docker container, or cached gateway, it may return a 404.
+2. Local Development Server (localhost / 127.0.0.1):
+   - If running a local server (Streamlit, Flask, Node.js, React, Django):
+     * Check the URL port: Ensure you are navigating to the exact port your server printed (e.g. http://localhost:8501 for Streamlit, http://localhost:3000 for React, http://localhost:8000 for Python).
+     * Check URL route typos: A 404 means the server is running, but the path (e.g. /dashboard or /api/data) is not registered in your code.
+     * Hard refresh: Press Ctrl + F5 or Ctrl + Shift + R to bypass old cached 404 responses.
+3. Offline Static HTML/Docs:
+   - If opening an offline documentation folder or website mirror:
+     * Check relative file paths: Ensure images or subpages link via relative paths (e.g. ./docs/index.html) rather than hardcoded online URLs (https://...).
+     * Look for index.html: Navigating to a folder without an index.html file will trigger a 404 on local servers.
+4. Restart Local Server:
+   - Stop the terminal process (Ctrl + C) and restart it. If a port conflict occurred, another stale process may be holding the port. Find and kill it via cmd: netstat -ano | findstr :PORT, then taskkill /PID <PID> /F.
+
+Q: How do I fix common Windows system errors and corrupted files without internet?
+A: Windows includes powerful built-in offline repair utilities that do not require an active internet connection:
+1. System File Checker (SFC):
+   - Open Command Prompt as Administrator (press Win + S, type cmd, right-click and select "Run as administrator").
+   - Type: sfc /scannow and press Enter.
+   - Windows will scan all protected system files and replace corrupted files from a local cached copy in C:\Windows\System32\dllcache.
+2. Deployment Image Servicing and Management (DISM):
+   - If SFC finds errors it cannot fix, run: DISM /Online /Cleanup-Image /RestoreHealth
+   - If completely offline without internet, you can use your Windows installation USB or ISO as the repair source:
+     DISM /Online /Cleanup-Image /RestoreHealth /Source:WIM:D:\Sources\install.wim:1 /LimitAccess
+3. Check Disk for File System Errors (CHKDSK):
+   - In Admin Command Prompt, run: chkdsk C: /f /r (type Y to schedule on next reboot, then restart). This repairs bad sectors and corrupted NTFS metadata.
+4. Boot into Safe Mode:
+   - If Windows is failing to boot normally or crashing frequently:
+     * Press Win + R, type msconfig, go to the "Boot" tab, check "Safe boot", and restart.
+     * Alternatively, hold the Shift key while clicking Restart in the Start Menu. Go to Troubleshoot > Advanced options > Startup Settings > Restart > press 4 for Safe Mode.
+
+Q: What should I do if my laptop gets a Blue Screen of Death (BSOD) while stranded offline on an island?
+A: 1. Record the Stop Code: Note the error name shown on the blue screen (e.g., MEMORY_MANAGEMENT, DRIVER_IRQL_NOT_LESS_OR_EQUAL, CRITICAL_PROCESS_DIED).
+2. Disconnect All External Devices: Unplug USB drives, external mice, adapters, or SD cards. A faulty USB device or driver is the #1 cause of sudden BSODs.
+3. Boot into Safe Mode: Hold Shift while clicking Restart, then select Troubleshoot > Advanced Options > Startup Settings > Safe Mode. If it boots in Safe Mode, the hardware is fine and a recently installed third-party driver or software is the culprit.
+4. Check Windows Event Viewer: Press Win + R, type eventvwr.msc, press Enter. Go to Windows Logs > System, and filter by Error/Critical to see exactly which driver (.sys file) failed.
+5. Roll Back Recent Drivers: Open Device Manager (Win + X > Device Manager), right-click recently updated display/audio/network drivers > Properties > Driver tab > "Roll Back Driver".
+6. Check RAM: Press Win + R, type mdsched.exe, choose "Restart now and check for problems".
+
+Q: How do I maximize laptop battery life and survive working on an island with no power outlets?
+A: 1. Screen Power (Biggest Drain):
+   - Drop screen brightness to 20-30% (saves up to 40% battery).
+   - If your laptop has a high-refresh-rate display (120Hz/144Hz/240Hz), lower it to 60Hz in Settings > System > Display > Advanced display.
+2. Battery Saver & Power Modes:
+   - Click the battery icon in the taskbar and drag the slider to "Best power efficiency" or enable Battery Saver immediately.
+   - In Control Panel > Power Options > Change plan settings > Change advanced power settings > Processor power management > Maximum processor state: set to 60% or 70%. This prevents the CPU from boosting into high-wattage turbo states.
+3. Disconnect Peripherals & Radios:
+   - Turn on Airplane Mode (Win + A > Airplane Mode) if you have no Wi-Fi/Bluetooth signals anyway. Searching for non-existent signals burns substantial battery.
+   - Unplug USB dongles, RGB peripherals, and external hard drives (these draw active 5V power from the laptop battery).
+4. Efficient Charging:
+   - Modern USB-C laptops can charge from 65W/100W Power Delivery (PD) power banks.
+   - Charge the laptop while it is turned OFF or in Sleep mode; it charges significantly faster and generates less heat than charging while working.
+5. USB Tethering vs. Wi-Fi Hotspot:
+   - If you manage to get a weak cellular signal on your phone, do NOT use a Wi-Fi hotspot. Instead, connect your phone to your laptop with a USB cable, go to phone Settings > Network > Hotspot & Tethering > toggle "USB Tethering". This provides internet while saving phone battery and eliminating Wi-Fi interference.
