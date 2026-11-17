@@ -5771,7 +5771,7 @@ with st.sidebar:
         index=curr_idx,
         key="sidebar_mode_selector",
         on_change=_on_sidebar_mode_change,
-        help="Switch between Online Cloud + 7-Stage Verification, Local Offline Mode, or Document RAG."
+        help="Switch between Online Cloud + 7-Stage Verification, Local Offline Mode (requires local installation), or Document RAG."
     )
     if selected_mode != st.session_state.app_mode:
         set_app_mode(selected_mode)
@@ -5802,6 +5802,7 @@ with st.sidebar:
                 • <b>Network:</b> Zero external requests (Air-gapped)
             </div>
         """, unsafe_allow_html=True)
+        st.info("💡 **Note:** For running the app in offline mode you need to install it.")
     else:
         doc_label = st.session_state.uploaded_document or "No PDF active"
         st.markdown(f"""
@@ -5927,7 +5928,7 @@ elif banner_mode == MODE_OFFLINE:
     banner_border = "#f59e0b"
     banner_icon = "🌴"
     banner_title = "OFFLINE / ISLAND MODE ACTIVE"
-    banner_desc = "100% Local Qwen 1.5B / Ollama • ChromaDB Knowledge Base • Zero Internet Requests"
+    banner_desc = "100% Local Qwen 1.5B / Ollama • ChromaDB Knowledge Base • Zero Internet Requests • For running the app in offline mode you need to install it"
 else:
     banner_bg = "rgba(59, 130, 246, 0.10)"
     banner_border = "#3b82f6"
@@ -5961,6 +5962,9 @@ with q_c3:
     if st.button("📚 Switch to Document", key="btn_quick_doc", use_container_width=True, type="primary" if banner_mode == MODE_DOCUMENT else "secondary"):
         set_app_mode(MODE_DOCUMENT)
         st.rerun()
+
+if banner_mode == MODE_OFFLINE:
+    st.info("💡 **Note:** For running the app in offline mode you need to install it.")
 
 st.divider()
 
