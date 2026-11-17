@@ -87,24 +87,34 @@ GENERAL_MODEL = "llama3.1"
 
 def _resolve_gemini_api_key() -> str:
     # 1. Environment variable / .env
-    k = os.getenv("GEMINI_API_KEY", "").strip()
-    if k:
-        return k
+    for var in ("GEMINI_API_KEY", "GOOGLE_API_KEY", "gemini_api_key", "google_api_key"):
+        k = os.getenv(var, "").strip()
+        if k:
+            return k
     # 2. Streamlit Cloud Secrets (st.secrets)
     try:
-        if hasattr(st, "secrets") and "GEMINI_API_KEY" in st.secrets:
-            return str(st.secrets["GEMINI_API_KEY"]).strip()
+        if hasattr(st, "secrets"):
+            for var in ("GEMINI_API_KEY", "GOOGLE_API_KEY", "gemini_api_key", "google_api_key"):
+                if var in st.secrets:
+                    val = str(st.secrets[var]).strip()
+                    if val:
+                        return val
     except Exception:
         pass
     return ""
 
 def _resolve_gemini_model() -> str:
-    m = os.getenv("ECRAG_GEMINI_MODEL", "").strip()
-    if m:
-        return m
+    for var in ("ECRAG_GEMINI_MODEL", "GEMINI_MODEL", "ecrag_gemini_model", "gemini_model"):
+        m = os.getenv(var, "").strip()
+        if m:
+            return m
     try:
-        if hasattr(st, "secrets") and "ECRAG_GEMINI_MODEL" in st.secrets:
-            return str(st.secrets["ECRAG_GEMINI_MODEL"]).strip()
+        if hasattr(st, "secrets"):
+            for var in ("ECRAG_GEMINI_MODEL", "GEMINI_MODEL", "ecrag_gemini_model", "gemini_model"):
+                if var in st.secrets:
+                    val = str(st.secrets[var]).strip()
+                    if val:
+                        return val
     except Exception:
         pass
     return "gemini-3.5-flash-lite"
@@ -127,11 +137,11 @@ _gemini_client_instance = None
 def _gemini_client():
     """Return a cached Gemini client (created once per process)."""
     global _gemini_client_instance
-    if _gemini_client_instance is not None:
-        return _gemini_client_instance
     key = _resolve_gemini_api_key()
     if genai is None or not key:
         return None
+    if _gemini_client_instance is not None:
+        return _gemini_client_instance
     try:
         _gemini_client_instance = genai.Client(api_key=key)
         return _gemini_client_instance
@@ -174,8 +184,8 @@ def _gemini_chat(messages):
 
     prompt = _messages_to_gemini_text(messages)
 
-    candidate_models = [GEMINI_MODEL]
-    for alt in ["gemini-3.5-flash-lite", "gemini-flash-lite-latest", "gemini-3.8-flash", "gemini-3.6-flash"]:
+    candidate_models = [_resolve_gemini_model()]
+    for alt in ["gemini-3.5-flash-lite", "gemini-3.8-flash", "gemini-flash-lite-latest", "gemini-3.6-flash"]:
         if alt not in candidate_models:
             candidate_models.append(alt)
 
@@ -447,12 +457,18 @@ def ai_chat(messages):
     if gemini_response:
         return gemini_response
 
+    # If Gemini is not configured, inform the user cleanly instead of hanging or falling back to heavy local models on cloud
+    if not _resolve_gemini_api_key():
+        raise RuntimeError(
+            "GEMINI_API_KEY is not configured! Please configure your GEMINI_API_KEY in Streamlit Cloud Secrets (Settings -> Secrets) or in your local .env file."
+        )
+
     # Prevent massive Stage 7 verification prompt from hanging on CPU for 600s:
-    is_large_verification = any(
-        "You are Stage 7" in str(m.get("content", "")) or len(str(m.get("content", ""))) > 3000
+    is_large_stage7 = any(
+        "You are Stage 7" in str(m.get("content", ""))
         for m in messages
     )
-    if is_large_verification:
+    if is_large_stage7:
         print("[ECRAG] Gemini unavailable for large Stage 7 validation; fast-falling back to deterministic verification.")
         return None
 
@@ -4285,6 +4301,15 @@ Rules:
         messages=[{"role": "user", "content": answer_prompt}]
     )
 
+    if not response or not isinstance(response, dict) or "message" not in response:
+        if not _resolve_gemini_api_key():
+            raise RuntimeError(
+                "GEMINI_API_KEY is not configured! Please configure your GEMINI_API_KEY in Streamlit Cloud Secrets (Settings -> Secrets) or your local .env file."
+            )
+        raise RuntimeError(
+            "Gemini model returned an empty response. Please verify your API key and quota."
+        )
+
     answer = response["message"]["content"].strip()
 
     # Deterministic temporal sanity check for "latest" claims. If the answer
@@ -4724,6 +4749,12 @@ CURRENT USER QUESTION:
     response = ai_chat(
         messages=[{"role": "user", "content": prompt}]
     )
+    if not response or not isinstance(response, dict) or "message" not in response:
+        if not _resolve_gemini_api_key():
+            raise RuntimeError(
+                "GEMINI_API_KEY is not configured! Please configure your GEMINI_API_KEY in Streamlit Cloud Secrets (Settings -> Secrets) or your local .env file."
+            )
+        raise RuntimeError("Model generation failed to return candidate answer.")
     return response["message"]["content"]
 
 
@@ -5748,14 +5779,20 @@ with st.sidebar:
 
     # Dynamic Mode Info Card
     if st.session_state.app_mode == MODE_ONLINE:
-        st.markdown("""
-            <div style="background:rgba(16,185,129,0.08);border-left:4px solid #10b981;padding:8px 10px;border-radius:4px;font-size:11px;line-height:1.4;">
-                <b style="color:#10b981;">🌐 ONLINE VERIFICATION MODE</b><br/>
-                • <b>Model:</b> <code>Gemini 3.6 Flash</code> (Cloud)<br/>
+        has_gemini = bool(_resolve_gemini_api_key())
+        status_color = "#10b981" if has_gemini else "#ef4444"
+        key_status = "✅ Connected" if has_gemini else "⚠️ Key Missing (Add in Secrets)"
+        st.markdown(f"""
+            <div style="background:rgba(16,185,129,0.08);border-left:4px solid {status_color};padding:8px 10px;border-radius:4px;font-size:11px;line-height:1.4;">
+                <b style="color:{status_color};">🌐 ONLINE VERIFICATION MODE</b><br/>
+                • <b>Model:</b> <code>{_resolve_gemini_model()}</code> (Cloud)<br/>
+                • <b>API Key:</b> <b>{key_status}</b><br/>
                 • <b>Search:</b> Multi-tier live internet retrieval<br/>
                 • <b>Pipeline:</b> 7-Stage Factual Verification
             </div>
         """, unsafe_allow_html=True)
+        if not has_gemini:
+            st.warning("⚠️ **Gemini API Key Missing**: On Streamlit Cloud, click **Manage app** (bottom-right) ➔ **Settings** ➔ **Secrets** to add `GEMINI_API_KEY`.")
     elif st.session_state.app_mode == MODE_OFFLINE:
         st.markdown("""
             <div style="background:rgba(245,158,11,0.08);border-left:4px solid #f59e0b;padding:8px 10px;border-radius:4px;font-size:11px;line-height:1.4;">
@@ -6340,8 +6377,24 @@ CONFIDENCE: 1.000
                 st.error(f"❌ Offline mode error: {e}")
                 st.stop()
 
-    # 3. ONLINE MODE (Cloud Gemini 3.6 Flash + Live Web + 7-Stage Pipeline)
+    # 3. ONLINE MODE (Cloud Gemini + Live Web + 7-Stage Pipeline)
     else:
+        if not _resolve_gemini_api_key():
+            st.error(
+                "⚠️ **GEMINI_API_KEY is not configured!**\n\n"
+                "Online Verification Mode requires a Google Gemini API key to run.\n\n"
+                "**How to fix on Streamlit Community Cloud:**\n"
+                "1. Click the **`Manage app`** button in the lower-right corner of your screen.\n"
+                "2. Click the three dots menu (**`⋮`**) ➔ **Settings** ➔ **Secrets**.\n"
+                "3. In the text area, paste:\n"
+                "   ```toml\n"
+                "   GEMINI_API_KEY = \"your_gemini_api_key_here\"\n"
+                "   ECRAG_GEMINI_MODEL = \"gemini-3.5-flash-lite\"\n"
+                "   ```\n"
+                "4. Click **Save**. Streamlit will automatically reload with Online Mode active!"
+            )
+            st.stop()
+
         timeline_events = []
         with st.status("🔬 Running 7-Stage Factual Verification Pipeline...", expanded=True) as status_box:
             def live_web_cb(event):
