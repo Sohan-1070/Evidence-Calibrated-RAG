@@ -5670,15 +5670,24 @@ MODE_ONLINE = "🌐 Online Mode"
 MODE_OFFLINE = "🌴 Offline Mode"
 MODE_DOCUMENT = "📚 Document Mode"
 
+def set_app_mode(mode: str):
+    """Synchronizes mode across all Streamlit components, state keys, and sidebar widgets."""
+    st.session_state.app_mode = mode
+    st.session_state.offline_mode = (mode == MODE_OFFLINE)
+    st.session_state.sidebar_mode_selector = mode
+
 if "app_mode" not in st.session_state:
     if st.session_state.get("uploaded_document"):
-        st.session_state.app_mode = MODE_DOCUMENT
+        init_mode = MODE_DOCUMENT
     elif os.getenv("ECRAG_OFFLINE", "") == "1" and not os.getenv("GEMINI_API_KEY"):
-        st.session_state.app_mode = MODE_OFFLINE
+        init_mode = MODE_OFFLINE
     else:
-        st.session_state.app_mode = MODE_ONLINE
-
-st.session_state.offline_mode = (st.session_state.app_mode == MODE_OFFLINE)
+        init_mode = MODE_ONLINE
+    set_app_mode(init_mode)
+else:
+    st.session_state.offline_mode = (st.session_state.app_mode == MODE_OFFLINE)
+    if "sidebar_mode_selector" not in st.session_state or st.session_state.sidebar_mode_selector != st.session_state.app_mode:
+        st.session_state.sidebar_mode_selector = st.session_state.app_mode
 
 
 # ============================================================
@@ -5713,18 +5722,28 @@ with st.sidebar:
     # 3. Execution Mode Selector
     st.subheader("🧠 Execution Mode")
     mode_options = [MODE_ONLINE, MODE_OFFLINE, MODE_DOCUMENT]
+    
+    # Ensure selector key exists and is valid
+    if st.session_state.get("sidebar_mode_selector") not in mode_options:
+        st.session_state.sidebar_mode_selector = st.session_state.app_mode
+
     curr_idx = mode_options.index(st.session_state.app_mode) if st.session_state.app_mode in mode_options else 0
+
+    def _on_sidebar_mode_change():
+        chosen = st.session_state.get("sidebar_mode_selector")
+        if chosen and chosen in mode_options:
+            set_app_mode(chosen)
 
     selected_mode = st.radio(
         "Active System Engine:",
         mode_options,
         index=curr_idx,
         key="sidebar_mode_selector",
+        on_change=_on_sidebar_mode_change,
         help="Switch between Online Cloud + 7-Stage Verification, Local Offline Mode, or Document RAG."
     )
     if selected_mode != st.session_state.app_mode:
-        st.session_state.app_mode = selected_mode
-        st.session_state.offline_mode = (selected_mode == MODE_OFFLINE)
+        set_app_mode(selected_mode)
         st.rerun()
 
     # Dynamic Mode Info Card
@@ -5820,7 +5839,7 @@ with st.sidebar:
         if st.button("🔄 Unload Document", use_container_width=True):
             new_document()
             if st.session_state.app_mode == MODE_DOCUMENT:
-                st.session_state.app_mode = MODE_ONLINE
+                set_app_mode(MODE_ONLINE)
             st.rerun()
     else:
         st.info("⚪ No document loaded")
@@ -5894,19 +5913,16 @@ st.markdown(f"""
 # Quick mode toggle pills
 q_c1, q_c2, q_c3 = st.columns(3)
 with q_c1:
-    if st.button("🌐 Switch to Online", use_container_width=True, type="primary" if banner_mode == MODE_ONLINE else "secondary"):
-        st.session_state.app_mode = MODE_ONLINE
-        st.session_state.offline_mode = False
+    if st.button("🌐 Switch to Online", key="btn_quick_online", use_container_width=True, type="primary" if banner_mode == MODE_ONLINE else "secondary"):
+        set_app_mode(MODE_ONLINE)
         st.rerun()
 with q_c2:
-    if st.button("🌴 Switch to Offline", use_container_width=True, type="primary" if banner_mode == MODE_OFFLINE else "secondary"):
-        st.session_state.app_mode = MODE_OFFLINE
-        st.session_state.offline_mode = True
+    if st.button("🌴 Switch to Offline", key="btn_quick_offline", use_container_width=True, type="primary" if banner_mode == MODE_OFFLINE else "secondary"):
+        set_app_mode(MODE_OFFLINE)
         st.rerun()
 with q_c3:
-    if st.button("📚 Switch to Document", use_container_width=True, type="primary" if banner_mode == MODE_DOCUMENT else "secondary"):
-        st.session_state.app_mode = MODE_DOCUMENT
-        st.session_state.offline_mode = False
+    if st.button("📚 Switch to Document", key="btn_quick_doc", use_container_width=True, type="primary" if banner_mode == MODE_DOCUMENT else "secondary"):
+        set_app_mode(MODE_DOCUMENT)
         st.rerun()
 
 st.divider()
@@ -5926,8 +5942,7 @@ with st.expander("📄 Upload Document (PDF)", expanded=(banner_mode == MODE_DOC
                 st.session_state.uploaded_document = uploaded_file.name
                 st.session_state.pdf_count += 1
                 st.session_state.results = None
-                st.session_state.app_mode = MODE_DOCUMENT
-                st.session_state.offline_mode = False
+                set_app_mode(MODE_DOCUMENT)
                 st.success(f"✅ {uploaded_file.name} uploaded successfully! Switched to Document Mode.")
                 st.rerun()
             except Exception as e:
