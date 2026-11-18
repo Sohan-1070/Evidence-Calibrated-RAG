@@ -13,21 +13,21 @@
 
 * **🔬 7-Stage Factual Verification Pipeline**:
   1. **Official Sources**: Government (`.gov`), WHO, and institutional documentation.
-  2. **Primary Evidence**: Research datasets, official reports, direct whitepapers.
-  3. **Reference Sources**: Wikipedia, encyclopedic authorities, curated knowledge.
-  4. **Academic Sources**: Peer-reviewed literature, university repositories.
+  2. **Primary Evidence**: Research datasets, official reports, and whitepapers.
+  3. **Reference Sources**: Wikipedia, encyclopedic authorities, and reference archives.
+  4. **Academic Sources**: Peer-reviewed literature and university repositories.
   5. **Reputable News**: Tier-1 international and national news coverage (Google News RSS).
-  6. **Community Sources**: Web discussions, blogs, and grassroots leads (treated as leads only, never conclusive proof).
+  6. **Community Sources**: Web discussions and grassroots leads (treated as preliminary signals, never conclusive proof).
   7. **Final Validation**: Claim-by-claim verification ledger (`VERIFIED`, `PARTIALLY_VERIFIED`, `CONTRADICTED`, `UNVERIFIED`) with confidence scoring.
 
 * **🌐 3 Execution Modes**:
-  * **Online Mode**: Powered by Google Gemini 3.6 Flash and multi-tier live search.
+  * **Online Mode**: Powered by Google Gemini and multi-tier live search.
   * **Offline / Island Mode**: Completely air-gapped using local ChromaDB vector stores and local models.
-  * **Document Mode**: Upload any reference PDF to query, analyze, and cite document pages directly.
+  * **Document Mode**: Upload any reference PDF to inspect and cite pages directly.
 
 * **💬 Multi-Session Chat Segments**:
   * Persistent SQLite chat history segmented by sessions.
-  * Search, review, switch, and delete past conversations.
+  * Manage past conversations across sessions.
 
 * **🛡️ Zero Hallucination Guardrails**:
   * When insufficient evidence is available, the system abstains rather than inventing answers.
